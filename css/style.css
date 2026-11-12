@@ -1,0 +1,434 @@
+/* ==========================================================================
+   The Deep — site styles
+   Contents:
+     1. Design tokens (colors, type, spacing) — edit these first
+     2. Base elements
+     3. Layout helpers
+     4. Header and navigation
+     5. Hero
+     6. Sections (about, who, equipment, gallery, steps, resources, team)
+     7. Footer
+     8. Dark mode and reduced motion
+   ========================================================================== */
+
+/* 1. Design tokens --------------------------------------------------------
+   Colors and fonts come from the AeroAstro style guide. */
+:root {
+  /* AeroAstro style guide: primary colors */
+  --aa-blue:       #004d90;  /* PMS 653 */
+  --aa-gray:       #808084;  /* PMS Cool Gray 10: rules and decoration only,
+                                too light for body text on white */
+  /* AeroAstro style guide: supplemental colors */
+  --aa-light-blue: #56a0d3;
+  --aa-green:      #3a4c00;
+  --aa-lime:       #9fa617;
+  --aa-orange:     #f8971d;
+  --aa-yellow:     #fed41e;
+  --aa-purple:     #5234a5;
+
+  /* Roles used throughout this file */
+  --color-ink:      #1c2126;          /* body text */
+  --color-paper:    #ffffff;          /* page background */
+  --color-tint:     #eef3f8;          /* light section background */
+  --color-muted:    #5a5d63;          /* secondary text (6.6:1 on paper) */
+  --color-rule:     #c8ccd2;          /* borders and table rules */
+  --color-brand:    var(--aa-blue);   /* header, dark sections, footer, heavy rules */
+  --color-heading:  var(--aa-blue);
+  --color-link:     var(--aa-blue);   /* 8.6:1 on paper */
+  --color-accent:   var(--aa-yellow); /* primary button, focus ring */
+  --color-on-accent: #00294d;
+  --color-on-dark:  #ffffff;
+  --color-on-dark-muted: #cfe2f3;
+
+  /* AeroAstro style guide: Roboto for headings, Barlow for text */
+  --font-heading: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-body:    "Barlow", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  --wrap: 72rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --section-pad: clamp(3rem, 8vw, 6rem);
+  --header-height: 3.5rem;
+}
+
+/* 2. Base elements -------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+  background: var(--color-paper);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 0.6em;
+  text-wrap: balance;
+}
+h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); letter-spacing: -0.015em; color: var(--color-heading); }
+.section-dark h2 { color: var(--color-on-dark); }
+h3 { font-size: 1.125rem; line-height: 1.3; margin-top: 2em; }
+
+p, ul, ol { margin: 0 0 1em; }
+p, li { max-width: 68ch; }
+
+a { color: var(--color-link); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--color-on-accent);
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+.skip-link {
+  position: absolute;
+  left: 0.5rem; top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 700;
+}
+.skip-link:focus { top: 0.5rem; }
+
+/* 3. Layout helpers ------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section-pad); }
+.section-tint { background: var(--color-tint); }
+.section-dark { background: var(--color-brand); color: var(--color-on-dark); }
+.section-dark a { color: var(--color-on-dark); }
+
+.lede { font-size: 1.25rem; line-height: 1.5; }
+.narrow { max-width: 52ch; }
+
+.plain-list { list-style: none; padding: 0; }
+
+.two-col {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+@media (min-width: 56rem) {
+  .two-col { grid-template-columns: 1.15fr 1fr; }
+}
+
+/* 4. Header and navigation ------------------------------------------------ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-brand);
+  color: var(--color-on-dark);
+}
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  min-height: var(--header-height);
+  padding-block: 0.5rem;
+}
+.wordmark {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: 0.01em;
+  color: var(--color-on-dark);
+  text-decoration: none;
+}
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9375rem;
+}
+.nav-list a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: var(--color-on-dark);
+  text-decoration: none;
+}
+.nav-list a:hover { text-decoration: underline; text-decoration-color: var(--aa-yellow); text-decoration-thickness: 2px; }
+
+/* 5. Hero ----------------------------------------------------------------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(calc(100vh - var(--header-height)), 52rem);
+  background: #001e3a;
+  color: var(--color-on-dark);
+  overflow: hidden;
+}
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Dark gradient so text keeps its contrast over any photo */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(0, 30, 58, 0.93) 0%,
+    rgba(0, 30, 58, 0.72) 40%,
+    rgba(0, 30, 58, 0.18) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(2.5rem, 7vw, 5rem);
+}
+.hero h1 {
+  font-size: clamp(3.75rem, 15vw, 11rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25em;
+}
+.hero-lede {
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  line-height: 1.4;
+  max-width: 38ch;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+.hero-credit {
+  margin: 2rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--color-on-dark-muted);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 2px;
+}
+.button-primary { background: var(--color-accent); color: var(--color-on-accent); }
+.button-primary:hover { background: #ffe368; }
+.button-outline { border-color: #ffffff; color: #ffffff; }
+.button-outline:hover { background: #ffffff; color: var(--color-on-accent); }
+
+/* 6. Sections ------------------------------------------------------------- */
+
+/* About */
+.about-figure { margin: 0; }
+.about-figure img { width: 100%; }
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+/* Who can use the shop */
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0 2.5rem;
+  margin-top: 1rem;
+}
+.who-grid h3 {
+  padding-top: 1rem;
+  border-top: 3px solid var(--color-brand);
+}
+.who-grid li { padding-block: 0.2rem; }
+
+/* Equipment table */
+.table-scroll { overflow-x: auto; margin-top: 1.5rem; }
+.equipment {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.equipment th, .equipment td {
+  padding: 0.7rem 1rem 0.7rem 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-rule);
+}
+.equipment thead th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  border-bottom: 3px solid var(--color-brand);
+}
+.equipment tbody th { font-weight: 700; width: 28%; }
+.equipment td:last-child { color: var(--color-muted); padding-right: 0; }
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 1.75rem 1.25rem;
+  margin-top: 2rem;
+}
+.gallery figure { margin: 0; }
+.gallery img {
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+  background: #003a6e;
+}
+/* Add class="focus-right" to an image whose subject sits at the right edge */
+.gallery img.focus-right { object-position: 88% center; }
+/* The first photo is wide, so it takes two columns on larger screens */
+@media (min-width: 40rem) {
+  .gallery figure:first-child { grid-column: span 2; }
+}
+.gallery figcaption { color: var(--color-on-dark); font-size: 0.9375rem; font-weight: 600; }
+.gallery .credit { display: block; font-weight: 400; color: var(--color-on-dark-muted); }
+
+/* Steps (numbered: the order matters) */
+.steps {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem 2.5rem;
+  margin-top: 2rem;
+  padding: 0;
+}
+.steps li {
+  counter-increment: step;
+  padding-top: 1rem;
+  border-top: 3px solid var(--color-brand);
+}
+.steps li::before {
+  content: counter(step);
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--color-link);
+}
+.steps h3 { margin-top: 0.75rem; font-size: 1.25rem; }
+
+/* Member resources */
+.resource-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0 2.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+.resource-list li {
+  display: flex;
+  flex-direction: column;
+  padding-block: 0.9rem;
+  border-top: 1px solid var(--color-rule);
+}
+.resource-list a, .resource-list .todo { font-weight: 700; font-size: 1.125rem; }
+.resource-list span:last-child { font-size: 0.9375rem; color: var(--color-muted); }
+.todo { color: var(--color-muted); }
+
+.embed {
+  margin-block: 1rem;
+  background: #ffffff;           /* the LibCal widget is always light */
+  border: 1px solid var(--color-rule);
+}
+.embed iframe { display: block; width: 100%; border: 0; }
+
+/* Team and contact */
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.5rem 2.5rem;
+  margin-block: 2rem;
+  max-width: 48rem;
+}
+.person { display: flex; align-items: center; gap: 1.25rem; }
+.person h3 { margin: 0 0 0.15rem; font-size: 1.25rem; }
+.person p { margin: 0; color: var(--color-muted); }
+.avatar {
+  flex: none;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  display: grid;
+  place-items: center;
+  background: var(--color-tint);
+  color: var(--color-muted);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.contact-block { padding-top: 1.5rem; border-top: 3px solid var(--color-brand); }
+.contact-email {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 3.6vw, 2.25rem);
+  overflow-wrap: anywhere;
+}
+
+/* 7. Footer --------------------------------------------------------------- */
+.site-footer {
+  padding-block: 2.5rem;
+  background: var(--color-brand);
+  color: var(--color-on-dark-muted);
+  font-size: 0.9375rem;
+}
+.site-footer a { color: var(--color-on-dark); }
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+}
+.footer-inner p, .footer-inner ul { margin: 0; }
+
+/* 8. Dark mode and reduced motion ----------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-ink:     #e8eef4;
+    --color-paper:   #0a1826;
+    --color-tint:    #0f2236;
+    --color-muted:   #a9b6c3;
+    --color-rule:    #2a4058;
+    --color-brand:   #003a6e;
+    --color-heading: #ffffff;
+    --color-link:    #8fc3ea;
+  }
+  .who-grid h3, .steps li, .contact-block, .equipment thead th { border-color: var(--aa-light-blue); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

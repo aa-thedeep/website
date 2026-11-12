@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Deep | MIT AeroAstro prototyping shop and makerspace</title>
+  <meta name="description" content="The Deep is the MIT AeroAstro departmental shop: machining, waterjet, laser, 3D printing, and scanning for research, classes, and design-build teams.">
+
+  <!-- Fonts from the AeroAstro style guide: Roboto (headings), Barlow (text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================================================
+       SITE HEADER
+       To use a logo file, replace the text inside .wordmark with:
+       <img src="images/the-deep-logo.svg" alt="The Deep" height="32">
+       ============================================================ -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#top">The Deep</a>
+      <nav aria-label="Sections of this page">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#equipment">Equipment</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#get-started">Get started</a></li>
+          <li><a href="#members">Members</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================================================
+         HERO
+         To change the photo: put the new file in /images and update
+         src, width, height, and alt below.
+         ============================================================ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <img class="hero-image"
+           src="images/hero-cnc-machined-parts.jpg"
+           width="2000" height="1333"
+           alt="CNC-machined aluminum linkage parts laid out on a steel fixture table.">
+      <div class="wrap hero-content">
+        <h1 id="hero-title">The Deep</h1>
+        <p class="hero-lede">The prototyping shop and makerspace of MIT AeroAstro, where research, classes, and design-build teams turn designs into hardware.</p>
+        <p class="hero-actions">
+          <a class="button button-primary" href="#get-started">Get started</a>
+          <a class="button button-outline" href="#calendar">See the calendar</a>
+        </p>
+        <p class="hero-credit">Parts by Varun Maniar</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap two-col">
+        <div>
+          <h2 id="about-title">A departmental shop built on makerspace culture</h2>
+          <p class="lede">The Deep is a departmental shop inspired by makerspace culture and peer mentoring. We support the educational and research missions of AeroAstro by facilitating prototyping and the construction of experimental apparatus, advanced vehicles, and materials.</p>
+          <p>The shop frequently turns out parts for liquid- and solid-fueled rockets, spacecraft (especially CubeSats), and autonomous submersibles, along with research apparatus for biotech, microfluidics, robotics, and mechatronics. People here micromachine titanium and exotic engineering ceramics.</p>
+
+          <h3>How we run it</h3>
+          <ul>
+            <li>Orientations, operating hours, and scheduled trainings are posted on a public calendar.</li>
+            <li>Trainings and open hours are run by both staff and volunteer mentors.</li>
+            <li>A catalog of beginner-to-advanced co-curricular trainings builds competency and safety.</li>
+          </ul>
+
+          <p><a href="https://news.mit.edu/2019/mit-welcome-to-the-deep-new-project-manus-makerspace-0408">Read the MIT News story on the opening of The Deep</a></p>
+        </div>
+
+        <figure class="about-figure">
+          <img src="images/shop-panorama.jpg" width="670" height="386" loading="lazy"
+               alt="Panorama of the shop floor: two vertical mills, two lathes, a central workbench, tool chests, and a mezzanine.">
+          <figcaption>The main shop floor.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHO CAN USE THE SHOP
+         ============================================================ -->
+    <section class="section section-tint" id="who" aria-labelledby="who-title">
+      <div class="wrap">
+        <h2 id="who-title">Who can use The Deep</h2>
+        <p class="lede narrow">The Deep is open to the AeroAstro community, and to members of the design-build teams we support.</p>
+        <div class="who-grid">
+          <div>
+            <h3>AeroAstro community</h3>
+            <ul class="plain-list">
+              <li>Undergraduate and graduate students</li>
+              <li>Researchers</li>
+              <li>Faculty</li>
+              <li>Staff</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Design-build teams</h3>
+            <!-- To link a team, wrap its name: <a href="https://...">Rocket Team</a> -->
+            <ul class="plain-list">
+              <li>Rocket Team</li>
+              <li>Design Build Fly</li>
+              <li>Satellite Team</li>
+              <li>Sustainable Engine Team</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What we support</h3>
+            <ul class="plain-list">
+              <li>Research</li>
+              <li>Undergraduate curriculum</li>
+              <li>Graduate curriculum</li>
+              <li>Team projects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EQUIPMENT
+         One <tr> per machine. Copy a row to add one.
+         To add a column (e.g. "Training required"), add a <th> in
+         <thead> and a matching <td> in every row.
+         ============================================================ -->
+    <section class="section" id="equipment" aria-labelledby="equipment-title">
+      <div class="wrap">
+        <h2 id="equipment-title">Equipment and capabilities</h2>
+        <div class="table-scroll" role="region" aria-labelledby="equipment-title" tabindex="0">
+          <table class="equipment">
+            <thead>
+              <tr>
+                <th scope="col">Process</th>
+                <th scope="col">Equipment</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Milling</th>
+                <td>ProtoTRAK vertical bed mills</td>
+                <td>Manual or CNC</td>
+              </tr>
+              <tr>
+                <th scope="row">Turning</th>
+                <td>ProtoTRAK lathes</td>
+                <td>Manual or CNC</td>
+              </tr>
+              <tr>
+                <th scope="row">Waterjet cutting</th>
+                <td>ProtoMAX waterjet</td>
+                <td>Small format</td>
+              </tr>
+              <tr>
+                <th scope="row">Laser cutting</th>
+                <td>Universal laser cutter</td>
+                <td>CO<sub>2</sub></td>
+              </tr>
+              <tr>
+                <th scope="row">3D printing, filament</th>
+                <td>Prusa MK4<br>Prusa XL</td>
+                <td>Single extruder<br>Dual extruder</td>
+              </tr>
+              <tr>
+                <th scope="row">3D printing, resin</th>
+                <td>Formlabs Form 4</td>
+                <td>SLA</td>
+              </tr>
+              <tr>
+                <th scope="row">3D scanning</th>
+                <td>Creaform 3D scanner</td>
+                <td>Precision scanning</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WORK GALLERY
+         One <figure> per project. Images live in /images.
+         Always write alt text that describes the photo.
+         ============================================================ -->
+    <section class="section section-dark" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <h2 id="work-title">Made in The Deep</h2>
+        <p class="lede narrow">Class projects, team hardware, and research apparatus built by shop members.</p>
+
+        <div class="gallery">
+          <figure>
+            <img src="images/work-actuator.jpg" width="1200" height="611" loading="lazy"
+                 alt="Sheet-metal actuator assembly with a motor and curved linkage plates on a workbench.">
+            <figcaption>Actuator <span class="credit">Yi-tong Tseo</span></figcaption>
+          </figure>
+          <figure>
+            <img src="images/work-art-installation.jpg" width="670" height="501" loading="lazy"
+                 alt="Two metal sculptures with curving, perforated legs standing on a shop floor.">
+            <figcaption>Machined art installation <span class="credit">Yi-tong Tseo</span></figcaption>
+          </figure>
+          <figure>
+            <img src="images/work-turned-robotic-parts.jpg" width="608" height="458" loading="lazy"
+                 alt="A row of twelve identical finned, turned aluminum shafts.">
+            <figcaption>CNC-turned robotic parts <span class="credit">Evan Lim</span></figcaption>
+          </figure>
+          <figure>
+            <img src="images/work-cycloidal-drive.jpg" width="670" height="484" loading="lazy"
+                 alt="A hand holding a machined aluminum cycloidal disc with a lobed edge and six holes.">
+            <figcaption>CNC-machined cycloidal drive <span class="credit">Ryan Hoffman</span></figcaption>
+          </figure>
+          <figure>
+            <img class="focus-right" src="images/work-lathe-hammer.jpg" width="670" height="372" loading="lazy"
+                 alt="A small machinist’s hammer with an aluminum handle and brass and black faces.">
+            <figcaption>Lathe training project hammer <span class="credit">Ryan Hoffman</span></figcaption>
+          </figure>
+          <figure>
+            <img src="images/work-optical-apparatus.jpg" width="670" height="502" loading="lazy"
+                 alt="Machined aluminum and steel optical mount with electronics on an optical table.">
+            <figcaption>Optical apparatus <span class="credit">Audrey C</span></figcaption>
+          </figure>
+          <figure>
+            <img src="images/work-radome-carousel.jpg" width="670" height="893" loading="lazy"
+                 alt="A blue and white rotating carousel structure mounted on a central shaft inside a radome.">
+            <figcaption>MIT radome carousel <span class="credit">Hans Gaensbaer</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GET STARTED
+         ============================================================ -->
+    <section class="section" id="get-started" aria-labelledby="start-title">
+      <div class="wrap">
+        <h2 id="start-title">How to get started</h2>
+        <p class="lede narrow">For AeroAstro affiliates and members of supported teams.</p>
+        <ol class="steps">
+          <li>
+            <h3>Join the Slack channel</h3>
+            <p>It’s the best place to ask us questions.</p>
+            <p><a href="https://mit.enterprise.slack.com/archives/C0BJZ4M2USJ">Open The Deep on Slack</a></p>
+          </li>
+          <li>
+            <h3>Attend an orientation</h3>
+            <p>Orientations are posted on the shop calendar.</p>
+            <p><a href="https://project-manus.libcal.com/calendar/thedeep">Find an orientation</a></p>
+          </li>
+          <li>
+            <h3>Come to open hours or sign up for a training</h3>
+            <p>Trainings run from beginner to advanced.</p>
+            <p><a href="https://project-manus.libcal.com/calendar/thedeep">Sign up on the calendar</a></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MEMBER RESOURCES
+         ============================================================ -->
+    <section class="section section-tint" id="members" aria-labelledby="members-title">
+      <div class="wrap">
+        <h2 id="members-title">Resources for members</h2>
+
+        <ul class="resource-list">
+          <li>
+            <a href="https://project-manus.libcal.com/calendar/thedeep">Calendar</a>
+            <span>Orientations, open hours, and trainings</span>
+          </li>
+          <li>
+            <a href="https://make.mit.edu/pay">Pay with TechCASH or credit card</a>
+            <span>make.mit.edu</span>
+          </li>
+          <li>
+            <!-- TODO: add the cost object payment link, then delete class="todo" -->
+            <span class="todo">Cost object payments</span>
+            <span>Link to be added</span>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/folders/1ZwwvaM5Y2qezI9umJp5fAfHHnbUGjkYP?usp=sharing">Documentation drive</a>
+            <span>Shop documentation</span>
+          </li>
+          <li>
+            <!-- TODO: add the price list link or embed, then delete class="todo" -->
+            <span class="todo">Price list</span>
+            <span>To be added</span>
+          </li>
+          <li>
+            <a href="https://mit.enterprise.slack.com/archives/C0BJZ4M2USJ">Slack channel</a>
+            <span>Questions and announcements</span>
+          </li>
+        </ul>
+
+        <h3 id="calendar">Shop calendar</h3>
+        <!-- ==========================================================
+             CALENDAR EMBED (LibCal)
+             To update: replace only the src value below.
+             Keep the title attribute; screen readers need it.
+             In HTML, write each "&" in the URL as "&amp;".
+             ========================================================== -->
+        <div class="embed">
+          <iframe
+            title="The Deep monthly calendar of orientations, open hours, and trainings"
+            src="https://project-manus.libcal.com/widget/events/calendar/monthly?&amp;c=9476&amp;monthly=1&amp;inc=0&amp;target=_blank&amp;no_filters=0&amp;css=9476&amp;bs=1"
+            width="100%" height="550" loading="lazy"></iframe>
+        </div>
+        <p><a href="https://project-manus.libcal.com/calendar/thedeep">Open the full calendar in a new page</a></p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TEAM AND CONTACT
+         To add a headshot, replace the <div class="avatar">…</div>
+         with: <img class="avatar" src="images/NAME.jpg" width="240"
+         height="240" alt="Portrait of NAME">
+         ============================================================ -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">Team and contact</h2>
+
+        <div class="team">
+          <div class="person">
+            <div class="avatar" aria-hidden="true">SA</div>
+            <div>
+              <h3>Seth Avecilla</h3>
+              <p>Technical Instructor</p>
+            </div>
+          </div>
+          <div class="person">
+            <div class="avatar" aria-hidden="true">ZC</div>
+            <div>
+              <h3>Prof. Zachary Cordero</h3>
+              <p>Chair, Design-Build Committee</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <p>The fastest way to reach us is <a href="https://mit.enterprise.slack.com/archives/C0BJZ4M2USJ">Slack</a>. For everything else, email the mentors:</p>
+          <p class="contact-email"><a href="mailto:aa-thedeep-mentors@mit.edu">aa-thedeep-mentors@mit.edu</a></p>
+          <!-- TODO: add building and room number, and regular hours if any -->
+          <p>Interested in supporting hands-on aerospace education? <a href="https://aeroastro.mit.edu/support/">Give to AeroAstro</a> or write to us at the address above.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>The Deep<br>Department of Aeronautics and Astronautics<br>Massachusetts Institute of Technology</p>
+      <ul class="plain-list">
+        <li><a href="https://aeroastro.mit.edu">MIT AeroAstro</a></li>
+        <li><a href="https://accessibility.mit.edu/">Accessibility</a></li>
+        <li><a href="#top">Back to top</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
